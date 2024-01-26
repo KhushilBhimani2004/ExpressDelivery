@@ -1,0 +1,539 @@
+nav{
+    background-color: white;
+   position: sticky;
+   top: 0; 
+   box-shadow: 5px 5px 20px gray;
+   z-index: 999;
+}
+
+.Navbar-center{
+   display: flex;
+   width: 60%;
+}
+
+.flexRow{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav-right{
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+ul, li,a{
+    text-decoration: none;
+    list-style: none;
+    color: black;
+}
+
+a:hover{
+    transition: .1s ease-in;
+    color: blue;
+}
+
+.myBtn{
+    border: 1px solid lightgrey;
+}
+
+.myBtn:hover{
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    transition: .15s ease-in;
+    box-shadow: 8px 8px 10px lightgray;
+    /* scale: 1.01; */
+}
+
+.color-blue{
+    color: blue;
+}
+
+#logo{
+    color: blue;
+    font-family: fantasy;
+}
+
+.main-hero{
+    background-color: #e5ecfb;
+    height: fit-content;
+}
+
+.sel-location{
+    width: 70%;
+    border-radius: 14px;
+    height: fit-content;
+    /* height: 70px; */
+}
+
+.circle{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.circle img{
+    width: 22px;
+    height: 22px;
+    position: relative;
+    bottom: 4px;
+    border-radius: 0%;
+}
+
+.text-box{
+    height: fit-content;
+}
+
+.form-control::placeholder {
+    color: blue;
+  }
+
+.input-box{
+    width: 80%;
+}
+
+  .dropdown-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-btn {
+    cursor: pointer;
+    color: blue;
+    font-size: 95%;
+  } 
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    height: 200px;
+    overflow-y: scroll;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  .dropdown-item {
+    display: block;
+    padding: 10px;
+  }
+
+  .dropdown-item:hover {
+    background-color: #f1f1f1;
+  }
+
+/* Profile ICon Code*/
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+#profile-button {
+  background-color: blue;
+  border-radius: 5px;
+  color: #fff;
+  border: none;
+  padding: 5px 7.5px;
+  cursor: pointer;
+}
+
+.dropdown-content-profile {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.profile-dropdown button{
+  width: 100%;
+  padding: 12px 16px;
+  text-align: left;
+  text-decoration: none;
+  display: block;
+  background-color: #f9f9f9;
+  color: #333;
+  border: none;
+  cursor: pointer;
+}
+
+.profile-dropdown button:hover{
+  background-color: blue;
+  color: #fff;
+}
+
+/*Show the dropdown when the button is clicked */
+.show {
+  display: block;
+}
+/* Profile ICon Code*/
+
+
+
+/* Transparent Cards code start */
+.transparent-cards-container { 
+    height: 200px;
+    width: 100%;
+    background-color: #e5ecfb;
+    padding: 0px 20px;  
+}  
+
+.transparent-cards { 
+    width: 270px; 
+    box-shadow: 0 15px 25px rgba(111, 106, 106, 0.2); 
+    background-color: rgba(255, 255, 255, 0.375); 
+    height: 325px; 
+    border-radius: 10px; 
+    backdrop-filter: blur(14px); 
+    padding: 10px; 
+    text-align: center; 
+} 
+
+.transparent-cards img { 
+    height: 60%; 
+} 
+
+.card-img{
+    border-radius: 50%;
+    height: 180px;
+    width: 180px;
+    background-color: rgb(212, 212, 212);
+}
+/* Transparent Cards code Ends */
+
+/* radio bottons code Start */
+input[type="radio"] {
+  display: none;
+}
+/* Style the label when selected */
+input[type="radio"]:checked + .btn-radio,
+.btn-radio:hover {
+    border-color: #007bff; /* Set border color to blue on hover and when selected */
+}
+
+/* radio bottons code End */
+
+/* Transparent Rectangle code Starts */
+.transparent-rectangle{
+    height: fit-content;
+}
+
+#slider {
+    margin: 0 auto;
+    width: 50%;
+    max-width: 100%;
+    text-align: center;
+    border-radius: 14px;
+ }
+ #slider input[type=radio] {
+    display: none;
+ }
+ #slider label {
+    cursor:pointer;
+    text-decoration: none;
+ }
+ #slides {
+    position: relative;
+    z-index: 1;
+    border-radius: 14px;
+    box-shadow: 0 15px 25px rgba(111, 106, 106, 0.2); 
+ }
+ #overflow {
+    width: 100%;
+    overflow: hidden;
+ }
+ #slide1:checked ~ #slides .inner {
+    margin-left: 0;
+ }
+ #slide2:checked ~ #slides .inner {
+    margin-left: -100%;
+ }
+ #slide3:checked ~ #slides .inner {
+    margin-left: -200%;
+ }
+ #slide4:checked ~ #slides .inner {
+    margin-left: -300%;
+ }
+ #slides .inner {
+    transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    width: 400%;
+    line-height: 0;
+    height: fit-content;
+ }
+ #slides .slide {
+    width: 25%;
+    float:left;
+    height: 100%;
+    color: #fff;
+    border-radius: 14px;
+    background: #1f1f1f53;
+ }
+ .slide-content{
+    margin-left: 20px;
+    text-align: left;
+ }
+ #controls {
+    margin: -180px 0 0 0;
+    width: 100%;
+    height: 50px;
+    z-index: 3;
+    position: relative;
+ }
+ #controls label {
+    transition: opacity 0.2s ease-out;
+    display: none;
+    width: 50px;
+    height: 50px;
+    opacity: .4;
+ }
+ #controls label:hover {
+    opacity: 1;
+ }
+ #slide1:checked ~ #controls label:nth-child(2),
+ #slide2:checked ~ #controls label:nth-child(3),
+ #slide3:checked ~ #controls label:nth-child(4),
+ #slide4:checked ~ #controls label:nth-child(1) {
+    background: url(https://image.flaticon.com/icons/svg/130/130884.svg) no-repeat;
+    float:right;
+    margin: 0 -50px 0 0;
+    display: block;
+ }
+ #slide1:checked ~ #controls label:nth-last-child(2),
+ #slide2:checked ~ #controls label:nth-last-child(3),
+ #slide3:checked ~ #controls label:nth-last-child(4),
+ #slide4:checked ~ #controls label:nth-last-child(1) {
+    background: url(https://image.flaticon.com/icons/svg/130/130882.svg) no-repeat;
+    float:left;
+    margin: 0 0 0 -50px;
+    display: block;
+ }
+ #bullets {
+    margin: 150px 0 0;
+    text-align: centler;
+ }
+ #bullets label {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius:100%;
+    background: #ccc;
+    margin: 0 10px;
+ }
+ #slide1:checked ~ #bullets label:nth-child(1),
+ #slide2:checked ~ #bullets label:nth-child(2),
+ #slide3:checked ~ #bullets label:nth-child(3),
+ #slide4:checked ~ #bullets label:nth-child(4) {
+    background: #444;
+ }
+ @media screen and (max-width: 900px) {
+    #slide1:checked ~ #controls label:nth-child(2),
+    #slide2:checked ~ #controls label:nth-child(3),
+    #slide3:checked ~ #controls label:nth-child(4),
+    #slide4:checked ~ #controls label:nth-child(1),
+    #slide1:checked ~ #controls label:nth-last-child(2),
+    #slide2:checked ~ #controls label:nth-last-child(3),
+    #slide3:checked ~ #controls label:nth-last-child(4),
+    #slide4:checked ~ #controls label:nth-last-child(1) {
+       margin: 0;
+    }
+    #slides {
+       max-width: calc(100% - 140px);
+       margin: 0 auto;
+    }
+ }
+
+
+/* Transparent Rectangle code Ends */
+
+
+  /* Footer  */
+  .site-footer {
+   background-color: #08142c;
+   padding: 30px 0 10px;
+   font-size: 15px;
+   line-height: 20px;
+   color: rgb(209, 203, 203);
+ }
+ .site-footer .social-icons {
+   text-align: right;
+ }
+ .site-footer .social-icons a {
+   width: 40px;
+   height: 40px;
+   line-height: 40px;
+   margin-left: 6px;
+   margin-right: 0;
+   border-radius: 100%;
+   background-color: #fdfdfd;
+ }
+ .copyright-text {
+   margin-top: 10px;
+   font-family: "Nunito", sans-serif;
+ }
+
+ @media (max-width: 991px) {
+   .site-footer [class^="col-"] {
+     margin-bottom: 30px;
+   }
+ }
+ @media (max-width: 767px) {
+   .site-footer {
+     padding-bottom: 0;
+   }
+   .site-footer .copyright-text,
+   .site-footer .social-icons {
+     text-align: center;
+   }
+ }
+ .social-icons {
+   padding-left: 0;
+   margin-bottom: 0;
+   list-style: none;
+ }
+ .social-icons li {
+   display: inline-block;
+   margin-bottom: 14px;
+ }
+ .social-icons li.title {
+   margin-right: 15px;
+   text-transform: uppercase;
+   color: #171718;
+   font-weight: 700;
+   font-size: 18px;
+ }
+ .social-icons a {
+   background-color: #eceeef;
+   color: #1b1b1b;
+   font-size: 16px;
+   display: inline-block;
+   line-height: 44px;
+   width: 44px;
+   height: 44px;
+   text-align: center;
+   margin-right: 8px;
+   border-radius: 100%;
+   -webkit-transition: all 0.2s linear;
+   -o-transition: all 0.2s linear;
+   transition: all 0.2s linear;
+ }
+ .social-icons a:active,
+ .social-icons a:focus,
+ .social-icons a:hover {
+   color: #fff;
+   background-color: #29aafe;
+ }
+ .social-icons.size-sm a {
+   line-height: 34px;
+   height: 34px;
+   width: 34px;
+   font-size: 14px;
+ }
+ .social-icons a.github:hover {
+   background-color: #141414;
+ }
+ .social-icons a.twitter:hover {
+   background-color: #00aced;
+ }
+ .social-icons a.linkedin:hover {
+   background-color: #007bb6;
+ }
+ .social-icons a.youtube:hover {
+   background-color: #e60606;
+ }
+ .social-icons a.instagram:hover {
+   background-color: #b8046d;
+ }
+ @media (max-width: 767px) {
+   .social-icons li.title {
+     display: block;
+     margin-right: 0;
+     font-weight: 600;
+   }
+ }
+ @media (max-width: 450px) {
+   .site-footer p span {
+     left: 50%;
+     top: 120%;
+   }
+ }
+ /* Footer  */
+
+ /* footer */
+ .site-footer span {
+   color: rgb(177, 174, 174);
+   font-size: 1.3rem;
+   display: block;
+   position: absolute;
+   left: 80%;
+   top: 35%;
+   transform: translateX(-50%) translateY(-50%);
+   text-align: center;
+   font-family: "Nunito", sans-serif;
+ }
+ .site-footer span a {
+   text-decoration: none;
+ }
+ .site-footer .fa {
+   color: #e90606;
+   margin: 0 0.3rem;
+   font-size: 1.1rem;
+   animation: pound 0.35s infinite alternate;
+ }
+ @-webkit-keyframes pound {
+   to {
+     transform: scale(1.1);
+   }
+ }
+ @keyframes pound {
+   to {
+     transform: scale(1.1);
+   }
+ }
+ /* footer made with love */
+
+/* signin compnent starts */
+.login{
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(5px);
+}
+/* signin compnent ends */
+
+
+/* form cards code starts */
+.card_hover:hover{
+  border: 1px solid blue;
+}
+.card_hover.active{
+    border-color: blue;
+}
+.btn_border{
+  border: 1px solid rgb(183, 183, 183);
+}
+.pickup .form-control::placeholder{
+  color: lightgray;
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.dateTime{
+  display: none;
+}
+/* form cards code ends */
+
+
+@media screen and (max-width: 480px) {
+    .sel-location{
+        width: 90%;
+    }
+    #slider {
+      width: 100%;
+   }
+}
+

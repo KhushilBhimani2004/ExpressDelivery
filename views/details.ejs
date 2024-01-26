@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express Delivery || Mumbai</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script id="search-js" defer src="https://api.mapbox.com/search-js/v1.0.0-beta.17/web.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="autocompleteApi.js"></script>
+</head>
+<body>
+    <!-- navbar strated -->
+    <%- include('./navbar'); %>
+    <!-- navbar ends -->
+
+    <section class="container-sm order-form mx-auto" style="width: 60%;">
+      <form method="post">
+        <div class="d-flex justify-content-center align-items-center flex-column font-weight-bold">
+            <h1 class="me-auto ms-5 my-5">Courier Charges Calculator</h1>
+            <!-- <div class="card" style="width: 90%;"> -->
+
+              <!-- delivery type card -->
+              <div class="d-flex flex-row p-4 pb-5 shadow card border-0" style="width: 90%;">
+              <div class="card col-4 me-2 card_hover" id="deliverNow"  onclick="toggleCard(this)">
+                  <div class="info p-2">
+                    <i class="fa-solid fa-stopwatch p-2 ps-1" style="color: #0849ba; font-size: 25px;"></i>
+                    <h5>Deliver Now</h5>
+                    <p>We will assign the nearest courier to pick-up and deliver as soon as possible.</p>
+                    <h4>from ₹ 45</h4>
+                  </div>
+                </div>
+                  <div class="card col-4 me-2 card_hover" id="ScheduleNow" onclick="toggleCard(this)">
+                  <div class="info p-2">
+                    <i class="fa-solid fa-calendar-days p-2 ps-1" style="color: #0849ba; font-size: 25px;"></i>
+                    <h5>Schedule</h5>
+                    <p>We will arrive at each address at specified times.</p>
+                    <h4>from ₹ 45</h4>
+                  </div>
+                </div>
+              </div>
+            <!-- </div>  delivery type card ends-->
+
+
+            <!-- weight of product info started-->
+
+            <div class="info-weight w-100 mb-5 border-0">
+              <h3 class="text-start ms-5 mt-5">Weight</h3>
+              <div class="buttons ms-5 my-3">
+                  <label class="btn me-2 px-3 py-2 btn_border card_hover">
+                      <input type="radio" name="weight" value="1kg" onclick="toggleCard(this)"> Up to 1 kg
+                  </label>
+                  <label class="btn me-2 px-3 py-2 btn_border card_hover">
+                      <input type="radio" name="weight" value="5kg" onclick="toggleCard(this)"> Up to 5 kg
+                  </label>
+                  <label class="btn me-2 px-3 py-2 btn_border card_hover">
+                      <input type="radio" name="weight" value="10kg" onclick="toggleCard(this)"> Up to 10 kg
+                  </label>
+                  <label class="btn me-2 px-3 py-2 btn_border card_hover">
+                      <input type="radio" name="weight" value="15kg" onclick="toggleCard(this)"> Up to 15 kg
+                  </label>
+                  <label class="btn me-2 px-3 py-2 btn_border card_hover btn-radio" onclick="toggleCard(this)">
+                      <input type="radio" name="weight" value="20kg"> Up to 20 kg
+                  </label>
+              </div>
+            </div>
+          
+            <!-- weight of product info ends -->
+
+            <!-- pickup-address code starts -->
+            <div class="pickup d-flex flex-col p-3 pb-5 shadow card border-0" style="width: 90%;">
+              <p class="font-weight-bold mb-1 fs-6">Pick up Address</p>
+              <input type="text" class="p-2 form-control rounded-1" id="pickup_location" name="pickup-address" autocomplete="address-line1" placeholder="Street name and Locality name">
+
+              <div class="d-flex flex-row">
+                <div class="me-5">
+                  <p class="font-weight-bold mt-2 mb-1 fs-6">Contact Person</p>
+                  <input type="tel" class="p-2 rounded-1 form-control w-100" id="pickupPerson_Name" placeholder="Contact Person Name">
+                </div>
+                <div>
+                  <p class="font-weight-bold mt-2 mb-1 fs-6">10-digit Mobile No</p>
+                  <input type="tel" class="p-2 rounded-1 form-control w-100" id="pickupPerson_MobNo" placeholder="+91 _________">
+                </div>
+              </div>
+              <div class="d-flex flex-row" id="dateTime">
+                <div class="me-5 w-25 dateTime">
+                  <p class="font-weight-bold mt-2 mb-1 fs-6">Date</p>
+                  <input type="date" class="p-2 rounded-1 form-control w-100" id="pickup_date">
+                </div>
+                <div class="ms-2 w-25 dateTime">
+                  <p class="font-weight-bold mt-2 mb-1 fs-6">Time</p>
+                  <input type="time" class="p-2 rounded-1 form-control" id="pickup_time">
+                </div>
+              </div>
+              <p class="font-weight-bold mt-2 mb-1 fs-6">Address Description</p>
+              <textarea class="form-control rounded-1 p-2" name="detailed-pickup-address" id="pickup_address" cols="30" rows="2" placeholder="flat number, floor, building name, street name, landmarks, dimensions, package, fragile, contact name, etc." style="resize: none;"></textarea>
+            </div>
+            <!-- pickup-address code ends -->
+
+            <!-- drop-address code starts -->
+            <div class="pickup d-flex flex-col p-3 pb-5 shadow card mt-5 border-0" style="width: 90%;">
+              <p class="font-weight-bold mb-1 fs-6">Drop Address</p>
+              <input type="text" class="p-2 form-control rounded-1" id="drop_location" name="drop_address" autocomplete="address-line1" placeholder="Street name and Locality name">
+
+              <div class="d-flex flex-row">
+                <div class="me-5">
+                  <p class="font-weight-bold mt-2 mb-1 fs-6">Contact Person</p>
+                  <input type="tel" class="p-2 rounded-1 form-control w-100" id="dropPerson_Name" placeholder="Contact Person Name">
+                </div>
+                <div>
+                  <p class="font-weight-bold mt-2 mb-1 fs-6">10-digit Mobile No</p>
+                  <input type="tel" class="p-2 rounded-1 form-control w-100" id="dropPerson_MobNo" placeholder="+91 _________">
+                </div>
+              </div>
+              <p class="font-weight-bold mt-2 mb-1 fs-6">Address Description</p>
+              <textarea class="form-control rounded-1 p-2" name="detailed-drop-address" id="drop_address" cols="30" rows="2" placeholder="flat number, floor, building name, street name, landmarks, dimensions, package, fragile, contact name, etc." style="resize: none;"></textarea>
+            </div>
+            <!-- drop-address code ends -->
+
+            <!-- Items List code starts -->
+            <div class="pickup d-flex flex-col p-3 pb-5 shadow card mt-5 border-0" style="width: 90%;">
+              <p class="font-weight-bold mb-1 fs-6">What are you sending? (Pakage Type)</p>
+              <div class="items-checkbox ms-4">
+                  <li><input type="checkbox" id="Food"/> Food</li>
+                  <li><input type="checkbox" id="Medicines"/> Medicines</li>
+                  <li><input type="checkbox" id="Groceries"/> Groceries </li>
+                  <li><input type="checkbox" id="Document"/> Document </li>
+                  <li><input type="checkbox" id="Electonics"/> Electonics </li>
+                  <li><input type="checkbox" id="Clothes"/> Clothes </li>
+                  <li><input type="checkbox" id="Others"/> Others</li>
+              </div>
+            </div>
+            <!-- Items List code ends -->
+
+            <!-- payment type code starts -->
+            <div class="info-weight w-100 mb-5 border-0">
+              <h5 class="text-start ms-5 mt-5">Payment type</h5>
+              <div class="buttons ms-5 my-3">
+                <label class="btn btn_border card_hover w-25 py-2 me-2">
+                  <input type="radio" name="payType" value="offline" onclick="toggleCard(this)"> <img class="ms-1 me-3" style="width: 25px; height: 25px;" src="https://cdn-icons-png.flaticon.com/512/2704/2704312.png?ga=GA1.1.1721177229.1687612205" alt="">Cash
+              </label>
+                <label class="btn btn_border card_hover w-25 py-2 me-2">
+                  <input type="radio" name="payType" value="online" onclick="toggleCard(this)"> <i class="fa-solid fa-indian-rupee-sign ms-1 me-3"></i> Online
+              </label>
+                
+                <!-- <button class="btn btn_border card_hover w-25 my-3 me-2" onclick="toggleCard(this)"><i class="fa-solid fa-indian-rupee-sign ms-1 me-3"></i> Online</button> -->
+              </div>
+              <p class="font-weight-bold mb-1 fs-6 ms-5 cursor-pointer color-blue" id="couponBtn">I have a Coupon</p>
+              <div id="input"></div>
+            </div>
+            <!-- payment type code ends  onclick="couponBtn()" -->
+            <!-- <div id="results"></div> -->
+
+             <!-- submission code starts -->
+             <div class="pickup d-flex flex-col p-3 pb-5 shadow card mt-1 border-0 mb-5" style="width: 90%;">
+              <h3 class="text-start" id="results">Total: from ₹ 45</h3>
+              <div class="d-flex flex-row">
+                <button class="btn btn-primary w-25 rounded-1 my-2 mx-2" id="index_calculateBtn" type="button" onclick="getSelectedWeight()">Estimate Order Price</button>
+                <button class="btn btn-primary w-25 rounded-1 my-2" id="index_calculateBtn" type="button" onclick="confirm_order()">Submit Order</button>
+              </div>
+              <div class="submission-info">
+                By Clicking 'Submit order' you are forwarding your request to couriers and agree to Our Terms and Conditions along with the <a href="" style="color: blue;">clauses of the agreements</a>
+                <p>SMS notifications can be set after sending an order</p>
+                <p>To order a delivery boy just follow these simple steps:</p>
+                <ol class="list list-group-numbered">
+                  <li class="list-group-item">Provide us with necessary details: addresses, phone numbers at each address, desired time of delivery, weight of the delivery</li>
+                  <li class="list-group-item">If you like our quote, then click 'Submit order' button</li>
+                  <li class="list-group-item">Receive a call from the delivery boy assigned for your order. Negotiate, at which point he will be paid. Give him more details about your parcel and desired process.</li>
+                  <li class="list-group-item">Send us a message or call our Operator in case of any doubt. You will get the Operator's number by clicking 'Order' button, save it with your order's number</li>
+                  <li class="list-group-item">Get your delivery performed. Give the Courier signature right on his smartphone's screen to verify, that all have been done properly</li>
+                  <li class="">- You may rate a courier after the delivery is done to help us assign just best couriers.</li>
+                  <li class="">Best regards, ExpressDelivery</li>
+                </ol>
+              </div>
+            </div>
+            <!-- submission code ends -->
+
+        </div>
+      </form>
+
+    </section>
+
+  <!-- footer strated -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Pages</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="/index" class="nav-link p-0 text-light">Home</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">About Us</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Become a Courier</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Sign-up</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Login</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Contact Us</h5>
+          <ul class="list-group">
+            <li class="list-group"><a class="nav-link p-0 text-light" href="" target="_blank"><i
+                  class="fas fa-phone-volume" style="color: rgb(231, 231, 231);"></i> +91 9547821365</a></li>
+            <li class="list-group"><a class="nav-link p-0 text-light" href="" target="_blank"><i class="fas fa-at"
+                  style="color: rgb(231, 231, 231);"></i> abc@gmail.com</a></li>
+            <li class="list-group"><a class="nav-link p-0 text-light" href="" target="_blank"><i
+                  class="fas fa-map-marked-alt" style="color: rgb(231, 231, 231);"></i> Mumbai, India</a></li>
+          </ul>
+        </div>
+
+        <div class="box mx-4 col-md-4 col-sm-6 col-xs-12">
+          <h3>Business delivery you can trust</h3>
+          <p>Thank you for visiting website. And giving us a chance to help you Deliver at door step<br /> <br /> Keep Rising 🚀
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row border-top py-4">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved | Express Delivery </p>
+
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <ul class="social-icons">
+            <li><a class="linkedin" href="" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            <li><a class="twitter" href="" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a class="youtube" href="#" target="_blank"><i class="fab fa-youtube"></i></a></li>
+            <li><a class="instagram" href="" target="_blank"><i class="fab fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- footer ended -->
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="detailscript.js"></script>
+<script src="place2LngLat.js"></script>
+<script src="collectDetails.js"></script>
+<script src="script.js"></script>
+
+</html>

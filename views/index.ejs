@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express Delivery || Mumbai</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script id="search-js" defer src="https://api.mapbox.com/search-js/v1.0.0-beta.17/web.js"></script>
+    <script src="autocompleteApi.js"></script>
+</head>
+<body>
+    <%- include('./navbar'); %>
+    
+    
+
+    <div class="main-hero flex-column">
+        <div class="pt-5 text-center hero-head color-blue">
+            <h1>"Don't deliver a product. Deliver an experience"</h1>
+            <h2 style="color: black;"><i class="fa-solid fa-sack-xmark"></i> Calculate prices for courier services</h2>
+        </div>
+        <form>
+            <div class="mt-4 ms-auto me-auto card sel-location">
+                <div class="row d-flex flex-wrap">
+                    <div class="pickup-box col">
+                        <div class="d-flex text-box">
+                            <div class="m-1 circle" style="border: 5px solid green;"></div><p class="fw-bold mb-0 ms-2 p-0">Pickup From</p>
+                        </div>
+                        <div class="input-group input-group-sm me-4 ms-4 d-flex add-details mb-2 ">
+                            <span class="input"><i class="ms-2 pb-2 fa-solid fa-circle-plus" style="color: #009dff;"></i></span>
+                            <input type="text" class="form-control border-0 shadow-none ms-1" id="pickup_location" name="address" autocomplete="address-line1" placeholder="Add details (Eg. F.No, etc)">
+                        </div>
+                    </div>
+                    <div class="pickup-box col">
+                        <div class="d-flex text-box">
+                            <div class="m-1 circle" style="border: 5px solid red;"></div><p class="fw-bold mb-0 ms-2 p-0">Deliver To</p>
+                        </div>
+                        <div class="input-group input-group-sm me-4 ms-4 d-flex add-details mb-2 ">
+                            <span class="input" id=""><i class="ms-2 pb-2 fa-solid fa-circle-plus" style="color: #009dff;"></i></span>
+                            <input type="text" class="form-control border-0 shadow-none ms-1" name="address" id="drop_location" autocomplete="address-line1" placeholder="Add details (Eg. F.No, etc)">
+                          </div>
+                    </div>
+                    <div class="pickup-box col">
+                        <div class="d-flex text-box">
+                            <div class="m-1 circle">
+                                <img class="mb-0" src="site-img/package.png" alt="">
+                            </div>
+                            <p class="fw-bold mb-0 ms-2 p-0">Package Type</p>
+                        </div>
+                        <div class="me-2 ms-5 mb-2 dropdown-container">
+                            <div class="dropdown-btn">Tap to select category <i class="dropdown-btn fa-solid fa-angle-down" id="arrow"></i></div>
+                            <div class="dropdown-content">
+                                <li class="dropdown-item"><input type="checkbox" value="1"/> Food</li>
+                                <li class="dropdown-item"><input type="checkbox" value="1"/> Medicines</li>
+                                <li class="dropdown-item"><input type="checkbox" value="1"/> Groceries </li>
+                                <li class="dropdown-item"><input type="checkbox" value="1"/> Document </li>
+                                <li class="dropdown-item"><input type="checkbox" value="1"/> Electonics </li>
+                                <li class="dropdown-item"><input type="checkbox" value="1"/> Clothes </li>
+                                <li class="dropdown-item"><input type="checkbox" value="1"/> Others</li>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="pickup-box col-sm-1 d-flex my-2" id="index_calculateBtn"><!-- Place2lnglat.js file is used to calculate-->
+                            <i class="fa-solid fa-circle-right" style="font-size: 40px;"></i>
+                      </div>
+                </div>
+            </div>
+        </form>
+        <div class="text-center" id="results"> 
+            <br>
+        </div>
+        <div class="hero-image">
+            <img class="mx-auto d-block" src="site-img/delivery-truck.gif" alt="expressDeliveryImage">
+        </div>
+    </div>
+    
+    
+<div class="info-container" style="height: 55vh;">
+    <div class="transparent-cards-container d-flex flex-row justify-content-center pt-5">  <!-- align-items-center is causing that nature of cards to float -->
+        <div class="transparent-cards d-flex flex-column me-5">
+            <div class="card-img ms-auto me-auto mt-3 d-flex justify-content-center align-items-center">
+                <img src="site-img/fast-time.png" alt="">
+            </div>
+            <h1>Fast & Flexible</h1> 
+        </div>
+        
+        <div class="transparent-cards d-flex flex-column me-5">
+            <div class="card-img ms-auto me-auto mt-3 d-flex justify-content-center align-items-center">
+                <img src="site-img/wallet.png" alt="">
+            </div>
+            <h1>Affordable Rates</h1> 
+        </div>
+
+        <div class="transparent-cards d-flex flex-column">
+            <div class="card-img ms-auto me-auto mt-3 d-flex justify-content-center align-items-center">
+                <img src="site-img/trust.png" alt="">
+            </div>
+            <h1>Gauranteed and Trusted</h1> 
+        </div>
+
+    </div>
+</div>
+
+
+<div class="pb-5 pt-5">
+    <div id="slider">
+        <input type="radio" name="slider" id="slide1" checked>
+        <input type="radio" name="slider" id="slide2">
+        <input type="radio" name="slider" id="slide3">
+        <div id="slides">
+           <div id="overflow">
+              <div class="inner">
+                 <div class="slide slide_1">
+                    <div class="slide-content my-3 d-flex flex-row ">
+                        <div>
+                            <h2 class="pb-2">We don't purchase</h2>
+                            <p>Our captains won't pay and buy items on your behalf</p>
+                        </div>
+                        <div class="ms-auto pe-4 p-2 d-flex align-items-center">
+                            <img style="height: 50px;" src="https://cdn-icons-png.flaticon.com/512/4961/4961689.png?ga=GA1.1.1721177229.1687612205" alt="">
+                        </div>
+                    </div>
+                 </div>
+                 <div class="slide slide_2">
+                    <div class="slide-content my-3 d-flex flex-row ">
+                        <div>
+                            <h2 class="pb-2">Watch the weight</h2>
+                            <p>Weight will be checked at time of Pick-up and may affect change in Delivery Cost</p>
+                        </div>
+                        <div class="ms-auto pe-4 p-2 d-flex align-items-center">
+                            <img style="height: 50px;" src="https://cdn-icons-png.flaticon.com/512/189/189237.png?ga=GA1.1.1721177229.1687612205" alt="">
+                        </div>
+                    </div>
+                 </div>
+                 <div class="slide slide_3">
+                    <div class="slide-content my-3 d-flex flex-row ">
+                        <div>
+                            <h2 class="pb-2">Cash payment available</h2>
+                            <p>Cash payment is available at both pickup or drop locations</p>
+                        </div>
+                        <div class="ms-auto pe-4 p-2 d-flex align-items-center">
+                            <img style="height: 50px;" src="https://cdn-icons-png.flaticon.com/512/625/625599.png?ga=GA1.1.1721177229.1687612205" alt="">
+                        </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <div id="controls">
+           <label for="slide1"></label>
+           <label for="slide2"></label>
+           <label for="slide3"></label>
+        </div>
+        <div id="bullets">
+           <label for="slide1"></label>
+           <label for="slide2"></label>
+           <label for="slide3"></label>
+        </div>
+     </div>
+</div>
+
+  <!-- footer strated -->
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Pages</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="/" class="nav-link p-0 text-light">Home</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">About Us</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Become a Courier</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Sign-up</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Login</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Contact Us</h5>
+          <ul class="list-group">
+            <li class="list-group"><a class="nav-link p-0 text-light" href="" target="_blank"><i
+                  class="fas fa-phone-volume" style="color: rgb(231, 231, 231);"></i> +91 9547821365</a></li>
+            <li class="list-group"><a class="nav-link p-0 text-light" href="" target="_blank"><i class="fas fa-at"
+                  style="color: rgb(231, 231, 231);"></i> abc@gmail.com</a></li>
+            <li class="list-group"><a class="nav-link p-0 text-light" href="" target="_blank"><i
+                  class="fas fa-map-marked-alt" style="color: rgb(231, 231, 231);"></i> Mumbai, India</a></li>
+          </ul>
+        </div>
+
+        <div class="box mx-4 col-md-4 col-sm-6 col-xs-12">
+          <h3>Business delivery you can trust</h3>
+          <p>Thank you for visiting website. And giving us a chance to help you Deliver at door step<br /> <br /> Keep Rising 🚀
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row border-top py-4">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved | Express Delivery </p>
+
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <ul class="social-icons">
+            <li><a class="linkedin" href="" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            <li><a class="twitter" href="" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a class="youtube" href="#" target="_blank"><i class="fab fa-youtube"></i></a></li>
+            <li><a class="instagram" href="" target="_blank"><i class="fab fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- footer ended -->
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="indexpage.js"></script>
+<script src="place2LngLat.js"></script>
+<script src="script.js"></script> <!-- universal script -->
+</html>
