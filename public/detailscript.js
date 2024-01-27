@@ -17,3 +17,11 @@ deliverNow.addEventListener('click',()=>{
         element.style.display = element.style.display === 'block' ? 'none' : 'none';
     });
 })
+
+const screenWidth = window.screen.width;
+if (screenWidth < 480) {
+    deliveryType.classList.remove("flex-row")
+    deliverNow.classList.remove("col-4");
+    ScheduleNow.classList.remove("col-4");
+    
+}

@@ -17,14 +17,14 @@
     <%- include('./navbar'); %>
     <!-- navbar ends -->
 
-    <section class="container-sm order-form mx-auto" style="width: 60%;">
+    <section class="container-sm order-form mx-auto">
       <form method="post">
         <div class="d-flex justify-content-center align-items-center flex-column font-weight-bold">
             <h1 class="me-auto ms-5 my-5">Courier Charges Calculator</h1>
             <!-- <div class="card" style="width: 90%;"> -->
 
               <!-- delivery type card -->
-              <div class="d-flex flex-row p-4 pb-5 shadow card border-0" style="width: 90%;">
+              <div class="d-flex flex-row p-4 pb-5 shadow card border-0 " id="deliveryType" style="width: 90%;">
               <div class="card col-4 me-2 card_hover" id="deliverNow"  onclick="toggleCard(this)">
                   <div class="info p-2">
                     <i class="fa-solid fa-stopwatch p-2 ps-1" style="color: #0849ba; font-size: 25px;"></i>
@@ -75,7 +75,7 @@
               <p class="font-weight-bold mb-1 fs-6">Pick up Address</p>
               <input type="text" class="p-2 form-control rounded-1" id="pickup_location" name="pickup-address" autocomplete="address-line1" placeholder="Street name and Locality name">
 
-              <div class="d-flex flex-row">
+              <div class="d-flex flex-row flex-wrap">
                 <div class="me-5">
                   <p class="font-weight-bold mt-2 mb-1 fs-6">Contact Person</p>
                   <input type="tel" class="p-2 rounded-1 form-control w-100" id="pickupPerson_Name" placeholder="Contact Person Name">
@@ -105,7 +105,7 @@
               <p class="font-weight-bold mb-1 fs-6">Drop Address</p>
               <input type="text" class="p-2 form-control rounded-1" id="drop_location" name="drop_address" autocomplete="address-line1" placeholder="Street name and Locality name">
 
-              <div class="d-flex flex-row">
+              <div class="d-flex flex-row flex-wrap">
                 <div class="me-5">
                   <p class="font-weight-bold mt-2 mb-1 fs-6">Contact Person</p>
                   <input type="tel" class="p-2 rounded-1 form-control w-100" id="dropPerson_Name" placeholder="Contact Person Name">

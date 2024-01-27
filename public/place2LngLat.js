@@ -5,8 +5,13 @@ calculateBtn.addEventListener('click', async () => {
     const place1 = document.getElementById('pickup_location').value;
     const place2 = document.getElementById('drop_location').value;
 
+    results.innerHTML = `<img src="https://media.tenor.com/5o2p0tH5LFQAAAAi/hug.gif" class="p-4" width="100" height="100" alt="loading..." style="max-width: 345px; background-color: unset;">`
     const response = await fetch(`/getlocation?place1=${place1}&place2=${place2}`);
     const data = await response.json();
+
+    if (!response.ok) {
+        results.innerHTML = '<br><h4 class="text-danger">Enter Valid Address..</h4>'
+    }
 
     coords1 = await data.coords1;
     coords2 = await data.coords2;

@@ -1,19 +1,41 @@
-<nav class="ms-auto me-auto">
-    <div class="ms-auto me-auto Navbar-center">
-        <h1 class="ps-4" id="logo">LOGO</h1>
-        <div class="Navbar nav-right flexRow">
-            <ul class="flexRow mt-auto mb-auto">
-                <li  class="pe-4"><a href="/agents">Become a courier</a></li>
-                <li class="pe-4"><a href="#">Contact Sales</a></li>
-            </ul>
-            <a href="/details"><button class="m-2 me-4 btn btn-light myBtn" type="button">Order Delivery</button></a>
-            <div class="profile-dropdown">
-                <button id="profile-button"><i class="fa fa-user" style="color: white;"></i></button>
-                <div id="dropdown-content-profile" class="dropdown-content-profile">
-                    <a href="/orderhistory"><button id="view-orders">View Previous Orders</button></a>
-                    <a href="/signin"><button id="logout">Logout</button></a>
-                </div>
+<!-- Include Bootstrap CSS in your HTML -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand" href="#" id="logo">LOGO</a>
+
+    <!-- Toggle button for mobile -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/agents">Become a courier</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact Sales</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/details">Order Delivery</a>
+        </li>
+        <div class="profile-dropdown">
+            <button id="profile-button"><i class="fa fa-user" style="color: white;"></i></button>
+            <div id="dropdown-content-profile" class="dropdown-content-profile">
+                <a href="/orderhistory"><button id="view-orders">View Previous Orders</button></a>
+                <a href="/signin"><button id="logout">Logout</button></a>
             </div>
         </div>
+      </ul>
     </div>
+  </div>
 </nav>
+
+<!-- Include Bootstrap JS and Popper.js in your HTML -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" defer></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" defer></script>

@@ -30,3 +30,5 @@
 
   // Set the interval for auto-sliding (in milliseconds)
   setInterval(autoSlide, 5000); // Change 5000 to the desired time in milliseconds
+
+  

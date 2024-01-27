@@ -21,52 +21,59 @@
             <h2 style="color: black;"><i class="fa-solid fa-sack-xmark"></i> Calculate prices for courier services</h2>
         </div>
         <form>
-            <div class="mt-4 ms-auto me-auto card sel-location">
-                <div class="row d-flex flex-wrap">
-                    <div class="pickup-box col">
-                        <div class="d-flex text-box">
-                            <div class="m-1 circle" style="border: 5px solid green;"></div><p class="fw-bold mb-0 ms-2 p-0">Pickup From</p>
-                        </div>
-                        <div class="input-group input-group-sm me-4 ms-4 d-flex add-details mb-2 ">
-                            <span class="input"><i class="ms-2 pb-2 fa-solid fa-circle-plus" style="color: #009dff;"></i></span>
-                            <input type="text" class="form-control border-0 shadow-none ms-1" id="pickup_location" name="address" autocomplete="address-line1" placeholder="Add details (Eg. F.No, etc)">
-                        </div>
-                    </div>
-                    <div class="pickup-box col">
-                        <div class="d-flex text-box">
-                            <div class="m-1 circle" style="border: 5px solid red;"></div><p class="fw-bold mb-0 ms-2 p-0">Deliver To</p>
-                        </div>
-                        <div class="input-group input-group-sm me-4 ms-4 d-flex add-details mb-2 ">
-                            <span class="input" id=""><i class="ms-2 pb-2 fa-solid fa-circle-plus" style="color: #009dff;"></i></span>
-                            <input type="text" class="form-control border-0 shadow-none ms-1" name="address" id="drop_location" autocomplete="address-line1" placeholder="Add details (Eg. F.No, etc)">
-                          </div>
-                    </div>
-                    <div class="pickup-box col">
-                        <div class="d-flex text-box">
-                            <div class="m-1 circle">
-                                <img class="mb-0" src="site-img/package.png" alt="">
-                            </div>
-                            <p class="fw-bold mb-0 ms-2 p-0">Package Type</p>
-                        </div>
-                        <div class="me-2 ms-5 mb-2 dropdown-container">
-                            <div class="dropdown-btn">Tap to select category <i class="dropdown-btn fa-solid fa-angle-down" id="arrow"></i></div>
-                            <div class="dropdown-content">
-                                <li class="dropdown-item"><input type="checkbox" value="1"/> Food</li>
-                                <li class="dropdown-item"><input type="checkbox" value="1"/> Medicines</li>
-                                <li class="dropdown-item"><input type="checkbox" value="1"/> Groceries </li>
-                                <li class="dropdown-item"><input type="checkbox" value="1"/> Document </li>
-                                <li class="dropdown-item"><input type="checkbox" value="1"/> Electonics </li>
-                                <li class="dropdown-item"><input type="checkbox" value="1"/> Clothes </li>
-                                <li class="dropdown-item"><input type="checkbox" value="1"/> Others</li>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="pickup-box col-sm-1 d-flex my-2" id="index_calculateBtn"><!-- Place2lnglat.js file is used to calculate-->
-                            <i class="fa-solid fa-circle-right" style="font-size: 40px;"></i>
+          <div class="mt-4 ms-auto me-auto card sel-location">
+              <div class="row d-flex flex-wrap">
+                  <div class="pickup-box col-12 col-md-4">
+                      <div class="d-flex text-box">
+                          <div class="m-1 circle" style="border: 5px solid green;"></div>
+                          <p class="fw-bold mb-0 ms-2 p-0">Pickup From</p>
                       </div>
-                </div>
-            </div>
-        </form>
+                      <div class="input-group input-group-sm me-4 ms-4 d-flex add-details mb-2" style="width: 90%;">
+                          <span class="input"><i class="ms-2 pb-2 fa-solid fa-circle-plus" style="color: #009dff;"></i></span>
+                          <input type="text" class="form-control border-0 shadow-none ms-1" id="pickup_location" name="address" autocomplete="address-line1" placeholder="Add details (Eg. F.No, etc)">
+                      </div>
+                  </div>
+                  <div class="pickup-box col-12 col-md-4">
+                      <div class="d-flex text-box">
+                          <div class="m-1 circle" style="border: 5px solid red;"></div>
+                          <p class="fw-bold mb-0 ms-2 p-0">Deliver To</p>
+                      </div>
+                      <div class="input-group input-group-sm me-4 ms-4 d-flex add-details mb-2" style="width: 90%;">
+                          <span class="input" id=""><i class="ms-2 pb-2 fa-solid fa-circle-plus" style="color: #009dff;"></i></span>
+                          <input type="text" class="form-control border-0 shadow-none ms-1" name="address" id="drop_location" autocomplete="address-line1" placeholder="Add details (Eg. F.No, etc)">
+                      </div>
+                  </div>
+                  <div class="pickup-box col-12 col-md-4">
+                      <div class="d-flex text-box">
+                          <div class="m-1 circle">
+                              <img class="mb-0" src="site-img/package.png" alt="">
+                          </div>
+                          <p class="fw-bold mb-0 ms-2 p-0">Package Type</p>
+                      </div>
+                      <div class="me-2 ms-5 mb-2 dropdown-container">
+                          <div class="dropdown-btn">Tap to select category <i class="dropdown-btn fa-solid fa-angle-down" id="arrow"></i></div>
+                          <div class="dropdown-content">
+                              <li class="dropdown-item"><input type="checkbox" value="1"/> Food</li>
+                              <li class="dropdown-item"><input type="checkbox" value="1"/> Medicines</li>
+                              <li class="dropdown-item"><input type="checkbox" value="1"/> Groceries </li>
+                              <li class="dropdown-item"><input type="checkbox" value="1"/> Document </li>
+                              <li class="dropdown-item"><input type="checkbox" value="1"/> Electronics </li>
+                              <li class="dropdown-item"><input type="checkbox" value="1"/> Clothes </li>
+                              <li class="dropdown-item"><input type="checkbox" value="1"/> Others</li>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="pickup-box col-12 d-flex my-2" id="index_calculateBtn">
+                      <div class="mx-auto d-flex flex-column flex-md-row p-2 btn bg-primary-subtle flex-shrink-1">
+                          <h2 class="mb-2 mb-md-0">Estimate Cost</h2>
+                          <i class="fa-solid fa-circle-right ms-md-4" style="font-size: 40px;"></i> 
+                      </div>
+                  </div>
+                  
+              </div>
+          </div>
+      </form>
+      
         <div class="text-center" id="results"> 
             <br>
         </div>
@@ -76,31 +83,84 @@
     </div>
     
     
-<div class="info-container" style="height: 55vh;">
-    <div class="transparent-cards-container d-flex flex-row justify-content-center pt-5">  <!-- align-items-center is causing that nature of cards to float -->
-        <div class="transparent-cards d-flex flex-column me-5">
-            <div class="card-img ms-auto me-auto mt-3 d-flex justify-content-center align-items-center">
+    <div class="info-container" style="height: 55vh;">
+        <div class="d-md-flex justify-content-center">
+          <!-- Show only on mobile screens -->
+          <div class="d-md-none">
+            <div id="cardCarousel" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner" style="height: 55vh;">
+                <div class="carousel-item active">
+                  <div class="transparent-cards-container d-flex flex-column justify-content-center align-items-center pt-5 text-center">
+                    <div class="transparent-cards mb-4">
+                      <div class="card-img mt-3 d-flex justify-content-center align-items-center">
+                        <img src="site-img/fast-time.png" alt="">
+                      </div>
+                      <h1>Fast & Flexible</h1>
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="carousel-item">
+                  <div class="transparent-cards-container d-flex flex-column justify-content-center align-items-center pt-5 text-center">
+                    <div class="transparent-cards mb-4">
+                      <div class="card-img mt-3 d-flex justify-content-center align-items-center">
+                        <img src="site-img/wallet.png" alt="">
+                      </div>
+                      <h1>Affordable Rates</h1>
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="carousel-item">
+                  <div class="transparent-cards-container d-flex flex-column justify-content-center align-items-center pt-5 text-center">
+                    <div class="transparent-cards">
+                      <div class="card-img mt-3 d-flex justify-content-center align-items-center">
+                        <img src="site-img/trust.png" alt="">
+                      </div>
+                      <h1>Guaranteed and Trusted</h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <a class="carousel-control-prev" href="#cardCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#cardCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+      
+          <!-- Show on screens larger than mobile -->
+          <div class="d-none d-md-flex transparent-cards-container justify-content-around align-items-center pt-5 text-center">
+            <div class="transparent-cards mb-4">
+              <div class="card-img mt-3 d-flex justify-content-center align-items-center">
                 <img src="site-img/fast-time.png" alt="">
+              </div>
+              <h1>Fast & Flexible</h1>
             </div>
-            <h1>Fast & Flexible</h1> 
-        </div>
-        
-        <div class="transparent-cards d-flex flex-column me-5">
-            <div class="card-img ms-auto me-auto mt-3 d-flex justify-content-center align-items-center">
+      
+            <div class="transparent-cards mb-4">
+              <div class="card-img mt-3 d-flex justify-content-center align-items-center">
                 <img src="site-img/wallet.png" alt="">
+              </div>
+              <h1>Affordable Rates</h1>
             </div>
-            <h1>Affordable Rates</h1> 
-        </div>
-
-        <div class="transparent-cards d-flex flex-column">
-            <div class="card-img ms-auto me-auto mt-3 d-flex justify-content-center align-items-center">
+      
+            <div class="transparent-cards">
+              <div class="card-img mt-3 d-flex justify-content-center align-items-center">
                 <img src="site-img/trust.png" alt="">
+              </div>
+              <h1>Guaranteed and Trusted</h1>
             </div>
-            <h1>Gauranteed and Trusted</h1> 
+          </div>
         </div>
+      </div>
+      
 
-    </div>
-</div>
 
 
 <div class="pb-5 pt-5">

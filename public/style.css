@@ -125,6 +125,14 @@ a:hover{
   }
 
 /* Profile ICon Code*/
+    .bg-primary-subtle:hover {
+        background-color: #a3d0ff !important;
+    }
+
+    .bg-primary-subtle:hover h2 {
+        color: #ffffff; /* Change text color on hover */
+    }
+
 .profile-dropdown {
   position: relative;
   display: inline-block;
@@ -345,6 +353,14 @@ input[type="radio"]:checked + .btn-radio,
     }
  }
 
+ @media screen and (max-width: 900px) {
+  #slides{
+    max-width: 100%;
+    /* height: fit-content; */
+  }
+
+ }
+
 
 /* Transparent Rectangle code Ends */
 
@@ -502,8 +518,37 @@ input[type="radio"]:checked + .btn-radio,
   height: 100vh;
   backdrop-filter: blur(5px);
 }
+
+.signin_card{
+  border-radius: 25px !important;
+}
+
+@media screen and (max-width: 480px) {
+ 
+  .signin_card{
+    border-radius: 1px !important;
+    height: fit-content;
+  }
+}
+
+
+
 /* signin compnent ends */
 
+
+/* order-form management starts*/
+.order-form{
+  width: 60%;
+}
+
+@media screen and (max-width: 480px) {
+  .order-form{
+    width: 100%;
+  }
+}
+
+
+/* order-form management ends*/
 
 /* form cards code starts */
 .card_hover:hover{

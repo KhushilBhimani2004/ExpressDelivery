@@ -29,9 +29,11 @@ async function getlocation(pickupLocation, dropLocation) {
 
 
 // Initialize Leaflet map
-const map = L.map('map').setView([0, 0], 2); // Default view at (0, 0) with zoom level 2
-// Add a tile layer to the map (you can use different tile providers)
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+if(window.location.href.includes("/agents")){
+  const map = L.map('map').setView([0, 0], 2); // Default view at (0, 0) with zoom level 2
+  // Add a tile layer to the map (you can use different tile providers)
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+}
 
 function plotMap(coords1, coords2) {
   // Example: Set starting and ending coordinates
@@ -94,7 +96,7 @@ function getCardData(cardId) {
             </div>
           </div>
           </div>
-          <button class="btn btn-primary w-25" onclick="acceptBtn('${data.data._id}')" >Accept request</button>
+          <button class="btn btn-primary" onclick="acceptBtn('${data.data._id}')" >Accept request</button>
           `;
         }, 3000);
       } else {
@@ -208,3 +210,22 @@ function markCompletedBtn(UserId) {
       console.error('There was a problem with the fetch operation:', error);
     });
 }
+
+const screenWidth = window.screen.width;
+if (screenWidth < 480 ) {
+  main_container.classList.remove("flex-row")
+  main_container.classList.add("flex-column")
+  detailsSide.classList.remove("w-50","m-5")
+  detailsSide.classList.add("w-100")
+  mapSide.classList.remove("w-50")
+  mapSide.classList.add("w-100")
+
+}
+// else{
+//   main_container1.classList.remove("flex-row")
+//   main_container1.classList.add("flex-column")
+//   detailsSide1.classList.remove("w-50","m-5")
+//   detailsSide1.classList.add("w-100")
+//   mapSide1.classList.remove("w-50")
+//   mapSide1.classList.add("w-100")
+// }

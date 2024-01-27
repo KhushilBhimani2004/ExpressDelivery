@@ -14,10 +14,10 @@
 <body style="background-color: #e5ecfb;">
   <%- include('./navbar'); %>
     
-    <div class="d-flex flex-row w-100">
+    <div class="d-flex flex-row w-100" id="main_container">
         
       <%if(data != null){%> 
-        <div class="w-50 m-5" style="height: 80vh; overflow-y: auto;">
+        <div class="w-50 m-5" style="height: 80vh; overflow-y: auto;" id="detailsSide">
             <% data.forEach(item => { %>
             <div class="row p-2 m-3 rounded-2" style="width: 95%; border: 1px solid black; background-color: white;">
                 <div class="col">
@@ -37,7 +37,7 @@
             </div>   
           <% }; %>
 
-          <div class="w-50 me-5" style="height: fit-content;">
+          <div class="w-50 me-5 pb-4" style="height: fit-content;" id="mapSide">
             <div class="ms-auto me-5 mt-5 rounded border border-dark" id="map" style="position: relative; margin-top: 400px; height: 350px; width: 100%;"></div>
             <div id="product_info">
               <!-- Customer Details are here... -->
