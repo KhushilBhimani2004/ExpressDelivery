@@ -30,7 +30,7 @@ app.set('views',path.join(__dirname,'views'));
 app.get('/',async (req,res)=>{
   try {
     if(!user){
-      console.log("Not user");
+      // console.log("Not user");
       res.redirect('/signin');
     }
     else{
@@ -75,11 +75,12 @@ app.get('/agents',async(req,res)=>{
 
 app.get('/orderhistory',async(req,res)=>{
     try {
-        const data = await details_Data.find({user: user});
-        if (data[0].user == null) {
-            res.redirect('/signin');
-        }
-        else{
+      // console.log(user);
+      if (!user) {
+        res.redirect('/signin');
+      }
+      else{
+          const data = await details_Data.find({user: user});
             res.render('orderhistory.ejs',{data:data});
         }
         
