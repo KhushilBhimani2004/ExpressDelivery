@@ -7,12 +7,11 @@ const dotenv = require('dotenv');
 dotenv.config();
 var fetch = require('node-fetch');
 let mongoose = require('mongoose');
-const { log } = require('console');
 const nodemailer = require('nodemailer');
 require('./src/db/conn');
 const details_Data = require("./src/models/orderDetails");
 const { render } = require('ejs');
-
+const userData = require("./src/models/users");
 let user;
 
 // const mod = require("./public/quote");
@@ -30,13 +29,20 @@ app.set('views',path.join(__dirname,'views'));
 // console.log(__dirname);
 app.get('/',async (req,res)=>{
   try {
-    const data = await details_Data.find({user: user});
-    if (data[0].user == null) {
-        res.redirect('/signin');
+    if(!user){
+      console.log("Not user");
+      res.redirect('/signin');
     }
     else{
+      const data = await details_Data.find({user: user});
       res.render('index');
+
     }
+    // if (data[0].user == null) {
+    //     res.redirect('/signin');
+    // }
+    // else{
+    // }
     
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -227,7 +233,7 @@ app.get('/signup',(req,res)=>{
     res.render('signup.ejs',{data: null});
 })
 app.post('/signup',async(req,res)=>{
-    const userData = require("./src/models/users");
+    
     try {
         let name = req.body.name;
         let email = req.body.email;
@@ -285,7 +291,7 @@ app.get('/signin',(req,res)=>{
     res.render('signin.ejs',{data:null});
 })
 app.post('/signin',async(req,res)=>{
-    const userData = require("./src/models/users");
+    // const userData = require("./src/models/users");
     try {
         let email = req.body.email;
         let password = req.body.password;
